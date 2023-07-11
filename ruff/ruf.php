@@ -4,7 +4,7 @@ session_start();
 require '../modal/db.php';
 require '../../PHPMailer/PHPMailerAutoload.php';
 require '../modal/suportFunctions.php';
-$conn = new db();
+// $conn = new db();
 $connection = $conn->connect();
 $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $userId = $_SESSION['bsa_group_user_id'];
@@ -308,8 +308,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if (file_exists($full_name)) {
                 unlink($full_name);
             }
-            $objPHPExcel = new PHPExcel();
-            $color = new PHPExcel_Style_Color();
+            // $objPHPExcel = new PHPExcel();
+            // $color = new PHPExcel_Style_Color();
             $color->setRGB('800080');
             $objPHPExcel->getProperties()->setCreator("Me")->setLastModifiedBy("Me")->setTitle("My Excel Sheet")->setSubject("My Excel Sheet")->setDescription("Excel Sheet")->setKeywords("Excel Sheet")->setCategory("Me");
             $objPHPExcel->setActiveSheetIndex(0);
@@ -361,11 +361,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $objPHPExcel->getActiveSheet()->setCellValue('H' . $i, "Total Collection : " . $TotalCollections);
 
             $objPHPExcel->getActiveSheet()->getStyle("A4:L4")->getFont()->setBold(true);
-            $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
+            // $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel2007');
             try {
                 $objWriter->save($full_name);
             } catch (Exception $ex) {
-                $errors['error'] = $ex . Message;
+                // $errors['error'] = $ex . Message;
                 $data['success'] = false;
                 $data['errors'] = $errors;
             }
