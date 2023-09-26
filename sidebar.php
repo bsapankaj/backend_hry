@@ -49,18 +49,18 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-                
-                <!-- <li class="nav-item">
+                <?php if($_SESSION['hryS_user_type'] == 'Manager') { ?>
+                <li class="nav-item">
                     <a href="user.php" class="nav-link 
-                        <php
+                        <?php
                         if ($_SERVER['SCRIPT_NAME'] == '/hry_s/user.php') {
                             echo "active";
                         } ?>">
                         <i class="far fa-user nav-icon"></i>
                         <p>User</p>
                     </a>
-                </li> -->
-
+                </li>
+                <?php } ?>
                 <!-- <li class="nav-item 
                     <?php
                     if (in_array($_SERVER['SCRIPT_NAME'], $master_link)) {
